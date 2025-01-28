@@ -341,7 +341,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="space-y-8 mt-8"
             >
-              <h1 className={`${lang === 'en' ? 'text-7xl' : "text-6xl"} md:text-7xl text-4xl  font-bold leading-tight`}>{translations[lang].hero.title}</h1>
+              <p className={` md:text-7xl sm:text-6xl text-5xl  font-bold leading-tight`}>{translations[lang].hero.title}</p>
               <p className="text-lg md:text-xl text-gray-600 max-w-md">{translations[lang].hero.subtitle}</p>
               <div className="flex gap-4">
                 <Button
