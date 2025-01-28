@@ -1,10 +1,10 @@
 "use client";
-import japaneseArinaRose from "../public/9x16_as_a_Japanese_woman_in_kimono_ad (2).png"
-import teacherArina from "../public/9x16_me_as_an_teacher_ - Copy.png"
-import posingArina from "../public/9x16_im_a_teacher_i_want_images_for_m.png"
+import japaneseArinaRose from "../public/9x16_as_a_Japanese_woman_in_kimono_ad (2).png";
+import teacherArina from "../public/9x16_me_as_an_teacher_ - Copy.png";
+import posingArina from "../public/9x16_im_a_teacher_i_want_images_for_m.png";
 
-import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   Book,
   Globe2,
@@ -17,33 +17,43 @@ import {
   Phone,
   Menu,
   X,
-
   User,
   GraduationCap,
-
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { LuSparkles } from "react-icons/lu";
 
 export default function Home() {
-  const [lang, setLang] = useState("en")
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isChangingLang, setIsChangingLang] = useState(false)
+  const [lang, setLang] = useState("en");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isChangingLang, setIsChangingLang] = useState(false);
 
   const toggleLanguage = () => {
-    setIsChangingLang(true)
-    setLang(lang === "en" ? "ru" : "en")
-    setTimeout(() => setIsChangingLang(false), 500)
-  }
+    setIsChangingLang(true);
+    setLang(lang === "en" ? "ru" : "en");
+    setTimeout(() => setIsChangingLang(false), 500);
+  };
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isMenuOpen && !event.target.closest('.nav')) {
+        setIsMenuOpen(false);
+      }
+    };
 
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isMenuOpen]);
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset"
+      document.body.style.overflow = "unset";
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen]);
 
   const translations = {
     en: {
@@ -55,7 +65,8 @@ export default function Home() {
       },
       hero: {
         title: "Transform Your English Journey.",
-        subtitle: "From Astrakhan to the world, helping students master English through personalized education.",
+        subtitle:
+          "From Astrakhan to the world, helping students master English through personalized education.",
         cta: "Book a Lesson",
       },
       about: {
@@ -68,11 +79,13 @@ export default function Home() {
       },
       services: {
         title: "My Services",
-        subtitle: "Comprehensive English learning programs tailored to your needs and goals",
+        subtitle:
+          "Comprehensive English learning programs tailored to your needs and goals",
         items: [
           {
             title: "General English",
-            description: "Improve your overall English proficiency with a focus on speaking, listening, reading, and writing.",
+            description:
+              "Improve your overall English proficiency with a focus on speaking, listening, reading, and writing.",
             features: [
               "Personalized lesson plans",
               "Interactive speaking practice",
@@ -81,7 +94,8 @@ export default function Home() {
           },
           {
             title: "Exam Preparation",
-            description: "Prepare for English proficiency exams like IELTS, TOEFL, or Cambridge with targeted strategies.",
+            description:
+              "Prepare for English proficiency exams like IELTS, TOEFL, or Cambridge with targeted strategies.",
             features: [
               "Mock exams and feedback",
               "Time management techniques",
@@ -90,7 +104,8 @@ export default function Home() {
           },
           {
             title: "Business English",
-            description: "Enhance your professional communication skills for meetings, presentations, and emails.",
+            description:
+              "Enhance your professional communication skills for meetings, presentations, and emails.",
             features: [
               "Industry-specific vocabulary",
               "Role-playing business scenarios",
@@ -105,7 +120,8 @@ export default function Home() {
       },
       contact: {
         title: "Let's Connect",
-        subtitle: "Ready to start your English learning journey? Reach out through any of these channels:",
+        subtitle:
+          "Ready to start your English learning journey? Reach out through any of these channels:",
         cta: "Book a Trial Lesson",
         ctaSubtitle:
           "Experience a personalized lesson and discover how I can help you achieve your English language goals.",
@@ -121,7 +137,8 @@ export default function Home() {
       },
       hero: {
         title: "Начните свой путь изучения английского.",
-        subtitle: "Из Астрахани в мир, помогая студентам овладеть английским через персонализированное обучение.",
+        subtitle:
+          "Из Астрахани в мир, помогая студентам овладеть английским через персонализированное обучение.",
         cta: "Забронировать урок",
       },
       about: {
@@ -134,11 +151,13 @@ export default function Home() {
       },
       services: {
         title: "Мои услуги",
-        subtitle: "Комплексные программы обучения английскому языку, адаптированные под ваши потребности и цели",
+        subtitle:
+          "Комплексные программы обучения английскому языку, адаптированные под ваши потребности и цели",
         items: [
           {
             title: "Общий английский",
-            description: "Улучшите общее знание английского языка с акцентом на говорение, аудирование, чтение и письмо.",
+            description:
+              "Улучшите общее знание английского языка с акцентом на говорение, аудирование, чтение и письмо.",
             features: [
               "Индивидуальные планы уроков",
               "Интерактивная практика разговорной речи",
@@ -147,7 +166,8 @@ export default function Home() {
           },
           {
             title: "Подготовка к экзаменам",
-            description: "Подготовьтесь к экзаменам по английскому языку, таким как IELTS, TOEFL или Cambridge, с целевыми стратегиями.",
+            description:
+              "Подготовьтесь к экзаменам по английскому языку, таким как IELTS, TOEFL или Cambridge, с целевыми стратегиями.",
             features: [
               "Пробные экзамены и обратная связь",
               "Техники управления временем",
@@ -156,7 +176,8 @@ export default function Home() {
           },
           {
             title: "Деловой английский",
-            description: "Улучшите свои навыки профессионального общения для встреч, презентаций и электронной переписки.",
+            description:
+              "Улучшите свои навыки профессионального общения для встреч, презентаций и электронной переписки.",
             features: [
               "Отраслевая лексика",
               "Ролевые игры в бизнес-сценариях",
@@ -171,7 +192,8 @@ export default function Home() {
       },
       contact: {
         title: "Давайте свяжемся",
-        subtitle: "Готовы начать свой путь изучения английского? Свяжитесь со мной через любой из этих каналов:",
+        subtitle:
+          "Готовы начать свой путь изучения английского? Свяжитесь со мной через любой из этих каналов:",
         cta: "Забронировать пробный урок",
         ctaSubtitle:
           "Испытайте персонализированный урок и узнайте, как я могу помочь вам достичь ваших целей в изучении английского языка.",
@@ -190,7 +212,7 @@ export default function Home() {
         className={`min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 ${isChangingLang ? "pointer-events-none" : ""}`}
       >
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 bg-white/80 backdrop-blur-lg">
+        <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 bg-white/80 backdrop-blur-lg  md:w-full">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             {/* Logo with Gradient Typography */}
             <motion.div
@@ -266,46 +288,49 @@ export default function Home() {
           </div>
 
           {/* Mobile Menu Dropdown with Gradient Links */}
-          {isMenuOpen && (
-            <motion.div
-              className="md:hidden mt-4 space-y-4 bg-white/80 backdrop-blur-lg rounded-lg p-4 shadow-lg"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-            >
-              {Object.entries(translations[lang].nav).map(([key, value]) => (
-                <motion.a
-                  key={key}
-                  href={`#${key}`}
-                  className="block text-gray-600 hover:text-transparent transition-colors relative group"
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                className="md:hidden mt-4 space-y-4 bg-white/80 backdrop-blur-lg rounded-lg p-4 shadow-lg w-full max-w-screen"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {Object.entries(translations[lang].nav).map(([key, value]) => (
+                  <motion.a
+                    key={key}
+                    href={`#${key}`}
+                    className="block text-gray-600 hover:text-transparent transition-colors relative group"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600">
+                      {value}
+                    </span>
+                    <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                  </motion.a>
+                ))}
+                <motion.button
+                  onClick={toggleLanguage}
+                  className="block w-full text-left text-gray-600 hover:text-transparent transition-colors relative group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600">
-                    {value}
+                    {lang === "en" ? "РУ" : "EN"}
                   </span>
-                  {/* Gradient Underline Effect */}
-                  <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
-                </motion.a>
-              ))}
-              <motion.button
-                onClick={toggleLanguage}
-                className="block w-full text-left text-gray-600 hover:text-transparent transition-colors relative group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600">
-                  {lang === "en" ? "РУ" : "EN"}
-                </span>
-              </motion.button>
-            </motion.div>
-          )}
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
         </nav>
 
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center px-4 pt-20">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
+            <div className="absolute  top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
             <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
           </div>
 
@@ -314,7 +339,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="space-y-8 mt-8"
             >
               <h1 className={`${lang === 'en' ? 'text-7xl' : "text-6xl"} md:text-7xl font-bold leading-tight`}>{translations[lang].hero.title}</h1>
               <p className="text-xl text-gray-600 max-w-md">{translations[lang].hero.subtitle}</p>
@@ -323,7 +348,7 @@ export default function Home() {
                   size="lg"
                   className="bg-black hover:bg-gray-800 text-white px-8"
                   onClick={() => {
-                    const contactsSection = document.getElementById('contacts');
+                    const contactsSection = document.getElementById('contact');
                     if (contactsSection) {
                       contactsSection.scrollIntoView({ behavior: 'smooth' });
                     }
@@ -355,7 +380,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-                className="relative z-10 w-full h-[600px] object-cover rounded-lg shadow-2xl"
+                className="relative z-10 w-full h-[600px] object-cover rounded-lg shadow-2xl "
               />
 
               {/* Blurred circle (right) */}
@@ -363,7 +388,7 @@ export default function Home() {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.7 }}
                 transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
-                className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-100 rounded-full mix-blend-multiply filter blur-lg opacity-70"
+                className="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-100 rounded-full mix-blend-multiply filter blur-lg opacity-70 hidden md:block"
               ></motion.div>
             </motion.div>
           </div>
@@ -419,7 +444,7 @@ export default function Home() {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                        Spanish (gg)
+                        Spanish (intermediate)
                       </li>
                     </ul>
                   </div>
@@ -675,7 +700,7 @@ export default function Home() {
         </section>
       </motion.main>
     </AnimatePresence>
-  )
+  );
 }
 
 const services = [
@@ -697,7 +722,8 @@ const services = [
     icon: <Award className="w-6 h-6 text-blue-600" />,
     features: ["IELTS preparation", "TOEFL strategies", "Practice tests", "Score improvement tips"],
   },
-]
+];
+
 const testimonials = [
   {
     id: 1,
@@ -799,7 +825,7 @@ const socialLinks = [
   {
     icon: <Instagram className="w-6 h-6" />,
     label: "Instagram",
-    href: "https://instagram.com/arina.mak.english", // Ensure this matches the actual username
+    href: "https://ig.me/m/mrs.arina-m", // Ensure this matches the actual username
   },
   {
     icon: <Send className="w-6 h-6" />,
