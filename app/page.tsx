@@ -427,7 +427,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="mt-12 grid grid-cols-2 gap-8">
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-50 p-6 rounded-xl">
                     <div className="flex items-center gap-2 mb-4">
                       <Languages className="w-5 h-5 text-blue-600" />
