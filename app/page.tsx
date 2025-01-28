@@ -328,21 +328,21 @@ export default function Home() {
         </nav>
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center px-4 pt-20">
+        <section className="relative min-h-screen flex items-center justify-center px-4 pt-20  ">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute  top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
             <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-7xl mx-auto relative z-10">
+          <div className="  grid md:grid-cols-2 gap-12 max-w-7xl mx-auto relative z-10  ">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               className="space-y-8 mt-8"
             >
-              <h1 className={`${lang === 'en' ? 'text-7xl' : "text-6xl"} md:text-7xl font-bold leading-tight`}>{translations[lang].hero.title}</h1>
-              <p className="text-xl text-gray-600 max-w-md">{translations[lang].hero.subtitle}</p>
+              <h1 className={`${lang === 'en' ? 'text-7xl' : "text-6xl"} md:text-7xl text-4xl  font-bold leading-tight`}>{translations[lang].hero.title}</h1>
+              <p className="text-lg md:text-xl text-gray-600 max-w-md">{translations[lang].hero.subtitle}</p>
               <div className="flex gap-4">
                 <Button
                   size="lg"
